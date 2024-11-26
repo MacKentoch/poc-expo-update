@@ -1,4 +1,23 @@
 {
   "name": "pocExpoUpdate",
-  "displayName": "pocExpoUpdate"
+  "displayName": "pocExpoUpdate",
+  "expo": {
+    "name": "POC-expo-update",
+    "slug": "poc-expo-update",
+    "ios": {
+      "bundleIdentifier": "com.pocExpoUpdate"
+    },
+    "android": {
+      "package": "com.pocexpoupdate"
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/17d0edad-ba51-47da-a060-7cbad2bef2a0"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "17d0edad-ba51-47da-a060-7cbad2bef2a0"
+      }
+    }
+  }
 }
