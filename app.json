@@ -13,11 +13,10 @@
     "android": {
       "package": "com.pocexpoupdate"
     },
-    "runtimeVersion": "1.0.0",
     "updates": {
       "enabled": true,
       "url": "https://u.expo.dev/17d0edad-ba51-47da-a060-7cbad2bef2a0",
-      "runtimeVersion": "1.0.0"
+      "runtimeVersion": "1.1.0"
     },
     "extra": {
       "eas": {

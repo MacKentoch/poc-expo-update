@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -45,7 +45,10 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
+  const [debugTextList, seDebugTextList] = useState<string[]>('');
+
   const isDarkMode = useColorScheme() === 'dark';
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -61,11 +64,23 @@ function App(): React.JSX.Element {
 
       const update = await Updates.checkForUpdateAsync();
 
+      const newDebugTextList = [
+        ...debugTextList,
+        JSON.stringify({response: update}, null, ' '),
+      ];
+      seDebugTextList(newDebugTextList);
+
       if (update.isAvailable) {
         await Updates.fetchUpdateAsync();
         await Updates.reloadAsync();
       }
     } catch (error) {
+      const newDebugTextList = [
+        ...debugTextList,
+        JSON.stringify({error}, null, ' '),
+      ];
+      seDebugTextList(newDebugTextList);
+
       Alert.alert('Update fetch failed', 'Maybe no luck? ', [
         {
           text: `Error fetching latest Expo update: ${JSON.stringify(error)}`,
@@ -89,12 +104,21 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            <Text>Fetch app update</Text>
+          <Section title="What is it?">
+            <Text>EAS update POC</Text>
           </Section>
-          <Section title="Step Two">
+          <Section title="This text should change after an update:">
             <Text>This is 6th expo update</Text>
           </Section>
+          {debugTextList.length > 0 && (
+            <Section title="DEBUG ZONE ☢">
+              <>
+                {debugTextList.map(debugText => (
+                  <Text>{debugText}</Text>
+                ))}
+              </>
+            </Section>
+          )}
           <Button title="Fetch update" onPress={onFetchUpdateAsync} />
         </View>
       </ScrollView>
