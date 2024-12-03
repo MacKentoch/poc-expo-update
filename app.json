@@ -4,15 +4,20 @@
   "expo": {
     "name": "POC-expo-update",
     "slug": "poc-expo-update",
+    "owner": "erwan_datin-org",
+    "jsEngine": "jsc",
     "ios": {
-      "bundleIdentifier": "com.pocExpoUpdate"
+      "bundleIdentifier": "com.pocExpoUpdate",
+      "jsEngine": "jsc"
     },
     "android": {
       "package": "com.pocexpoupdate"
     },
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/17d0edad-ba51-47da-a060-7cbad2bef2a0"
+      "enabled": true,
+      "url": "https://u.expo.dev/17d0edad-ba51-47da-a060-7cbad2bef2a0",
+      "runtimeVersion": "1.0.0"
     },
     "extra": {
       "eas": {
