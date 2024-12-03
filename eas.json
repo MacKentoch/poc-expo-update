@@ -4,17 +4,13 @@
     "appVersionSource": "remote"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal",
-      "channel": "development"
+    "recette": {
+      "channel": "recette"
     },
-    "preview": {
-      "distribution": "internal",
-      "channel": "preview"
+    "preprod": {
+      "channel": "preprod"
     },
     "production": {
-      "autoIncrement": true,
       "channel": "production"
     }
   },
