@@ -52,6 +52,13 @@ function App(): React.JSX.Element {
 
   async function onFetchUpdateAsync() {
     try {
+      if (__DEV__) {
+        console.log(
+          "INFO: onFetchUpdateAsync won't fetch updates for dev build",
+        );
+        return;
+      }
+
       const update = await Updates.checkForUpdateAsync();
 
       if (update.isAvailable) {
@@ -61,12 +68,10 @@ function App(): React.JSX.Element {
     } catch (error) {
       Alert.alert('Update fetch failed', 'Maybe no luck? ', [
         {
-          text: "OK Fine can't do anything to this",
+          text: `Error fetching latest Expo update: ${JSON.stringify(error)}`,
           onPress: () => console.log('I gave up'),
         },
       ]);
-      // You can also add an alert() to see the error message in case of an error when fetching updates.
-      `Error fetching latest Expo update: ${error}`;
     }
   }
 
@@ -88,7 +93,7 @@ function App(): React.JSX.Element {
             <Text>Fetch app update</Text>
           </Section>
           <Section title="Step Two">
-            <Text>This is 1st expo update</Text>
+            <Text>This is 5th expo update</Text>
           </Section>
           <Button title="Fetch update" onPress={onFetchUpdateAsync} />
         </View>
