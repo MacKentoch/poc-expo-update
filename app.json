@@ -6,16 +6,22 @@
     "slug": "poc-expo-update",
     "owner": "erwan_datin-org",
     "jsEngine": "jsc",
+    "runtimeVersion": "1.1.0",
     "ios": {
       "bundleIdentifier": "com.pocExpoUpdate",
-      "jsEngine": "jsc"
+      "jsEngine": "jsc",
+      "runtimeVersion": "1.1.0"
     },
     "android": {
-      "package": "com.pocexpoupdate"
+      "package": "com.pocexpoupdate",
+      "runtimeVersion": "1.1.0"
     },
     "updates": {
       "enabled": true,
       "url": "https://u.expo.dev/17d0edad-ba51-47da-a060-7cbad2bef2a0",
+      "requestHeaders": {
+        "expo-channel-name": "recette"
+      },
       "runtimeVersion": "1.1.0"
     },
     "extra": {
