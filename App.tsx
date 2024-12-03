@@ -93,7 +93,7 @@ function App(): React.JSX.Element {
             <Text>Fetch app update</Text>
           </Section>
           <Section title="Step Two">
-            <Text>This is 5th expo update</Text>
+            <Text>This is 6th expo update</Text>
           </Section>
           <Button title="Fetch update" onPress={onFetchUpdateAsync} />
         </View>
