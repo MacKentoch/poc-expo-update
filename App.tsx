@@ -45,7 +45,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
-  const [debugTextList, seDebugTextList] = useState<string[]>('');
+  const [debugTextList, seDebugTextList] = useState<string[]>([]);
 
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -63,6 +63,7 @@ function App(): React.JSX.Element {
       }
 
       const update = await Updates.checkForUpdateAsync();
+      console.log('DEBUG: ', update);
 
       const newDebugTextList = [
         ...debugTextList,
@@ -108,13 +109,15 @@ function App(): React.JSX.Element {
             <Text>EAS update POC</Text>
           </Section>
           <Section title="This text should change after an update:">
-            <Text>This is 6th expo update</Text>
+            <Text>This is 8th expo update</Text>
           </Section>
           {debugTextList.length > 0 && (
             <Section title="DEBUG ZONE ☢">
               <>
-                {debugTextList.map(debugText => (
-                  <Text>{debugText}</Text>
+                {debugTextList.map((debugText, index) => (
+                  <Text key={`${index}-${debugText.substring(10)}`}>
+                    {debugText}
+                  </Text>
                 ))}
               </>
             </Section>
